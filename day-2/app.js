@@ -48,30 +48,25 @@ const checkDiaSemana = (fecha) => {
     return fecha.getDay()
 }
 
-
-// chequear dia de la semana
-const lista = [2, 4, 6]
-const res = lista.reduce((total, numero) => total numero)
-console.log(res)
-
-//Date.parse(fechaAParsear)
-
 const crearObjetosDate = (fecha) => {
     thisDate = new Date(fecha.getFullYear())
 }
 
 const countHours = (y, h) => {
     checkAnioBisiesto(y)
+    
     let cantDiasFestivos = h.length
-    h.forEach(e => {
+    
+    let hsExtra = cantDiasFestivos * 2
+    console.log( `Año: ${y} - Días festivos: ${cantDiasFestivos} - Total horas extra en el año: ${hsExtra}`)
+    return h.map(h => {
         let mm = h[0].slice(0, 2)
         let dd = h[0].slice(3) 
         let fechaAParsear = `${arrAnio}-${dd}-${mm}`
         let fechaParseada = Date.parse(fechaAParsear)
-    });
-    let hsExtra = cantDiasFestivos * 2
-    console.log( `Año: ${y} - Días festivos: ${cantDiasFestivos} - Total horas extra en el año: ${hsExtra}`)
-} */
+        let fecha = new Date(`${y}/${h}`)
+    })
+}
 
 countHours(arrAnio, arrDiasFestivos)
 
