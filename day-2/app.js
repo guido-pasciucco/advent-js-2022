@@ -32,7 +32,7 @@ El método Date.getDay() te devuelve el día de la semana de una fecha. El 0 es 
 
 */
 const arrAnio = 2012
-const arrDiasFestivos = ['01/06', '04/01'] // formato MM/DD
+const arrDiasFestivos = ['01/06', '04/01', '12/6'] // formato MM/DD
 //countHours(year, holidays) // 2 días -> 4 horas extra en el año
 
 
@@ -49,6 +49,10 @@ const checkDiaSemana = (fecha) => {
 }
 
 
+// chequear dia de la semana
+const lista = [2, 4, 6]
+const res = lista.reduce((total, numero) => total numero)
+console.log(res)
 
 //Date.parse(fechaAParsear)
 
@@ -60,20 +64,14 @@ const countHours = (y, h) => {
     checkAnioBisiesto(y)
     let cantDiasFestivos = h.length
     h.forEach(e => {
-        /*
-        crearObjetosDate(e)
-        checkDiaSemana(e)
-        */
         let mm = h[0].slice(0, 2)
         let dd = h[0].slice(3) 
         let fechaAParsear = `${arrAnio}-${dd}-${mm}`
-        console.log(fechaAParsear)
         let fechaParseada = Date.parse(fechaAParsear)
-        console.log(fechaParseada)
     });
     let hsExtra = cantDiasFestivos * 2
-    console.log( `Año ${y} Días festivos: ${cantDiasFestivos}, ${hsExtra} horas extra en el año`)
-}
+    console.log( `Año: ${y} - Días festivos: ${cantDiasFestivos} - Total horas extra en el año: ${hsExtra}`)
+} */
 
 countHours(arrAnio, arrDiasFestivos)
 
